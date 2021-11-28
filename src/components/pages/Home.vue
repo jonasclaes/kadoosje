@@ -1,13 +1,11 @@
 <template>
-  <h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
 </template>
 
 <script>
 export default {
-  name: "Home"
-}
+    name: 'Home',
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

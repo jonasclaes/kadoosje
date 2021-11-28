@@ -4,5 +4,5 @@
 </script>
 
 <template>
-  <router-view />
+    <div class="bg-gray-200 min-h-screen w-full"></div>
 </template>
