@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2b498484-4994-4128-aedf-56acbd3bbdf3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/kadoosje.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/kadoosje.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +55,11 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,7 +69,8 @@
       <option name="presentableId" value="Default" />
       <updated>1638140968699</updated>
       <workItem from="1638140971880" duration="1001000" />
-      <workItem from="1638141984076" duration="608000" />
+      <workItem from="1638141984076" duration="634000" />
+      <workItem from="1638142681441" duration="146000" />
     </task>
     <servers />
   </component>

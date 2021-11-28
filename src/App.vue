@@ -11,7 +11,7 @@
             <div class="flex space-x-4">
               <div>
                 <a href="/" class="flex items-center h-full px-2">
-                  <img src="kadoosje.svg" alt="Logo" class="h-10 mr-2">
+                  <img src="./assets/kadoosje.svg" alt="Logo" class="h-10 mr-2">
                   <span class="font-semibold text-white text-lg">Kadoosje</span>
                 </a>
               </div>
