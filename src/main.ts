@@ -11,12 +11,12 @@ import {getAuth, onAuthStateChanged} from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env['FIREBASE_APP_API_KEY'],
-    authDomain: process.env['FIREBASE_APP_AUTH_DOMAIN'],
-    projectId: process.env['FIREBASE_APP_PROJECT_ID'],
-    storageBucket: process.env['FIREBASE_APP_STORAGE_BUCKET'],
-    messagingSenderId: process.env['FIREBASE_MESSAGING_SENDER_ID'],
-    appId: process.env['FIREBASE_APP_APP_ID'],
+    apiKey: <string>import.meta.env.VITE_FIREBASE_APP_API_KEY,
+    authDomain: <string>import.meta.env.VITE_FIREBASE_APP_AUTH_DOMAIN,
+    projectId: <string>import.meta.env.VITE_FIREBASE_APP_PROJECT_ID,
+    storageBucket: <string>import.meta.env.VITE_FIREBASE_APP_STORAGE_BUCKET,
+    messagingSenderId: <string>import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: <string>import.meta.env.VITE_FIREBASE_APP_APP_ID,
 };
 
 // Initialize Firebase

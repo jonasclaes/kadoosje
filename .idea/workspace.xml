@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b498484-4994-4128-aedf-56acbd3bbdf3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/netlify.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +84,7 @@
       <workItem from="1638172252252" duration="12499000" />
       <workItem from="1638185226484" duration="1266000" />
       <workItem from="1638186949573" duration="5274000" />
-      <workItem from="1638192872458" duration="2497000" />
+      <workItem from="1638192872458" duration="3496000" />
     </task>
     <servers />
   </component>
