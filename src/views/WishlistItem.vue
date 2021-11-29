@@ -6,7 +6,7 @@
             Back
         </div>
     </router-link>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 justify-items-start items-start">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 justify-items-start items-start" v-if="item">
         <div class="bg-white rounded-lg shadow-lg p-4 col-span-full w-full">
             <h1 class="font-semibold text-xl">{{ wishlist.name }}</h1>
         </div>
@@ -39,32 +39,81 @@
 <script lang="ts">
 import {defineComponent} from 'vue';
 import numeral from 'numeral';
-import wishlistJSON from '../../wishlist.json';
+import {collection, doc, getDocs, query, updateDoc, where} from "firebase/firestore";
+import {db} from "../common";
 
 export default defineComponent({
     name: 'WishlistItem',
     props: ['uuid', 'itemUuid'],
     data: function () {
         return {
-            // @ts-ignore
-            wishlist: wishlistJSON[this.uuid],
+            wishlistId: null,
+            wishlist: {
+                name: ""
+            },
+            item: {
+                type: "",
+                uuid: "",
+                name: "",
+                description: "",
+                currency: "",
+                price: 0.0,
+                url: "",
+                picture: "",
+                purchased: false
+            },
+            itemId: null
         };
     },
+    created() {
+        this.getWishlist();
+    },
     methods: {
+        getWishlist: async function () {
+            const q = query(collection(db, '/wishlists'), where('uniqueId', '==', this.uuid));
+            const wishlist = await getDocs(q);
+
+            if (wishlist.size > 0) {
+                // @ts-ignore
+                this.wishlistId = wishlist.docs[0].id;
+                // @ts-ignore
+                this.wishlist = wishlist.docs[0].data();
+
+                await this.getWishlistItem();
+            }
+        },
+        getWishlistItem: async function () {
+            const q = query(collection(db, '/wishlistItems'), where('uuid', '==', this.itemUuid));
+            const wishlistItems = await getDocs(q);
+
+            if (wishlistItems.size > 0) {
+                // @ts-ignore
+                this.item = wishlistItems.docs[0].data();
+
+                // @ts-ignore
+                this.itemId = wishlistItems.docs[0].id;
+            }
+        },
         togglePurchased: function () {
-            this.item.purchased = !this.item.purchased;
+            // @ts-ignore
+            this.item.purchased = !this.item.purchased
+
+            // @ts-ignore
+            updateDoc(doc(collection(db, '/wishlistItems'), this.itemId), {
+                // @ts-ignore
+                purchased: this.item.purchased
+            });
         },
     },
     computed: {
-        item: function () {
-            // @ts-ignore
-            return this.wishlist['items'].find((item) => item.uuid === this.itemUuid);
-        },
         formattedPrice: function () {
+            // @ts-ignore
             return numeral(this.item.price).format('0.00');
         },
         imageLocation: function () {
-            return `/assets/img/${this.item.picture}`;
+            // return `/assets/img/${this.item.picture}`;
+            // @ts-ignore
+            return `${this.item.picture}`;
         },
     },
 });

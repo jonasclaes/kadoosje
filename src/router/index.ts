@@ -23,10 +23,20 @@ const routes: RouteRecordRaw[] = [
         props: true,
     },
     {
+        path: '/w/create',
+        name: 'CreateWishlist',
+        component: () => import('../views/CreateWishlist.vue'),
+    },
+    {
         path: '/w/:uuid/item/:itemUuid',
         name: 'WishlistItem',
         component: () => import('../views/WishlistItem.vue'),
         props: true,
+    },
+    {
+        path: '/w/:uuid/item/create',
+        name: 'CreateWishlistItem',
+        component: () => import('../views/CreateWishlistItem.vue'),
     },
 ];
 

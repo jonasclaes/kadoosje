@@ -9,17 +9,19 @@
   "dependencies": {
     "firebase": "^9.5.0",
     "numeral": "^2.0.6",
+    "uuid": "^8.3.2",
     "vue": "^3.2.16",
     "vue-router": "4"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.3.4",
     "@types/numeral": "^2.0.2",
+    "@types/uuid": "^8.3.3",
     "@vitejs/plugin-vue": "^1.9.3",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.4",
     "prettier": "2.5.0",
     "tailwindcss": "^2.2.19",
-    "@tailwindcss/forms": "^0.3.4",
     "typescript": "^4.5.2",
     "vite": "^2.6.4",
     "vue-tsc": "^0.3.0"

@@ -28,7 +28,8 @@ export default defineComponent({
     props: ['uuid', 'item', 'isLoggedIn'],
     computed: {
         imageLocation: function () {
-            return `/assets/img/${this.item.picture}`;
+            // return `/assets/img/${this.item.picture}`;
+            return `${this.item.picture}`;
         },
         cssClasses: function () {
             const classes = [];

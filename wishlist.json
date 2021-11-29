@@ -1,29 +1,32 @@
 {
-  "642bf5e6-1c2b-4015-85df-d34f1c2e6eee": {
-    "name": "Jonas' verlanglijstje",
-    "items": [
-      {
-        "type": "item",
-        "uuid": "a2464e97-7d5f-4186-b277-d86b199e6130",
-        "name": "Ethernet Module ENC28J60 - Mountable",
-        "description": "Ethernet Module ENC28J60 - Mountable - ENC28J60MOUNT - Network - This module can be connected to eg an Arduino Uno or Arduino Mega. The names of the pins are listed on the PCB. Specifications: Voltage: 3.3",
-        "currency": "EUR",
-        "price": 5.5,
-        "url": "https://www.tinytronics.nl/shop/en/communication-and-signals/ethernet/modules/arduino-ethernet-module-enc28j60-mountable",
-        "picture": "5770385.jpg",
-        "purchased": false
-      },
-      {
-        "type": "item",
-        "uuid": "31c273c4-f46d-405e-bb9c-86b2b71ffb70",
-        "name": "BLÅHAJ",
-        "description": "Pluchen speelgoed, haai100 cm",
-        "currency": "EUR",
-        "price": 17.99,
-        "url": "https://www.ikea.com/be/nl/p/blahaj-pluchen-speelgoed-haai-30373588/",
-        "picture": "blahaj.webp",
-        "purchased": true
-      }
-    ]
-  }
+  "jonas": [
+    {
+      "name": "Jonas' verlanglijstje",
+      "uniqueId": "o2yPQGt3zZq",
+      "items": [
+        {
+          "type": "item",
+          "uuid": "a2464e97-7d5f-4186-b277-d86b199e6130",
+          "name": "Ethernet Module ENC28J60 - Mountable",
+          "description": "Ethernet Module ENC28J60 - Mountable - ENC28J60MOUNT - Network - This module can be connected to eg an Arduino Uno or Arduino Mega. The names of the pins are listed on the PCB. Specifications: Voltage: 3.3",
+          "currency": "EUR",
+          "price": 5.5,
+          "url": "https://www.tinytronics.nl/shop/en/communication-and-signals/ethernet/modules/arduino-ethernet-module-enc28j60-mountable",
+          "picture": "5770385.jpg",
+          "purchased": false
+        },
+        {
+          "type": "item",
+          "uuid": "31c273c4-f46d-405e-bb9c-86b2b71ffb70",
+          "name": "BLÅHAJ",
+          "description": "Pluchen speelgoed, haai100 cm",
+          "currency": "EUR",
+          "price": 17.99,
+          "url": "https://www.ikea.com/be/nl/p/blahaj-pluchen-speelgoed-haai-30373588/",
+          "picture": "blahaj.webp",
+          "purchased": true
+        }
+      ]
+    }
+  ]
 }
