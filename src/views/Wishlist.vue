@@ -3,6 +3,7 @@
         <div class="bg-white rounded-lg shadow-lg p-4 col-span-1 w-full">
             <h1 class="font-semibold text-xl">{{ wishlist.name }}</h1>
             <router-link
+                v-if="isLoggedIn"
                 :to="{ name: 'CreateWishlistItem' }"
                 class="transition-colors duration-300 px-3 py-2 mt-2 text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white rounded inline-flex justify-center items-center text-center">
                 Add a new item
