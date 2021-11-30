@@ -5,7 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b498484-4994-4128-aedf-56acbd3bbdf3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/modules/account.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/modules/wishlist.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/CreateWishlist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CreateWishlist.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/CreateWishlistItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CreateWishlistItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Register.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Wishlist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Wishlist.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/WishlistItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/WishlistItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +100,8 @@
       <workItem from="1638172252252" duration="12499000" />
       <workItem from="1638185226484" duration="1266000" />
       <workItem from="1638186949573" duration="5274000" />
-      <workItem from="1638192872458" duration="12336000" />
+      <workItem from="1638192872458" duration="12693000" />
+      <workItem from="1638224873290" duration="12251000" />
     </task>
     <servers />
   </component>

@@ -1,18 +1,18 @@
 <template>
     <div class="grid grid-cols-1 gap-3 justify-items-start">
         <div class="col-span-full w-full">
-            <h1 class="font-semibold text-xl" v-if="isLoggedIn">Welkom terug, {{ loggedInUser.email }}!</h1>
+            <h1 class="font-semibold text-xl" v-if="getAccount">Welkom terug, {{ getAccount.name }}!</h1>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-4 col-span-full w-full" v-if="isLoggedIn">
+        <div class="bg-white rounded-lg shadow-lg p-4 col-span-full w-full" v-if="getAccount">
             <h1 class="font-semibold text-xl">Jouw verlanglijstjes:</h1>
-            <div v-if="wishlists.length > 0" class="grid grid-cols-2 gap-3 mt-2">
+            <div v-if="getWishlists.length > 0" class="grid grid-cols-2 gap-3 mt-2">
                 <router-link
-                    v-for="wishlist in wishlists"
-                    v-bind:key="wishlist.id"
-                    :to="{ name: 'Wishlist', params: { uuid: wishlist.data().uniqueId } }"
+                    v-for="wishlist in getWishlists"
+                    :key="wishlist['$id']"
+                    :to="{ name: 'Wishlist', params: { uuid: wishlist.uniqueId } }"
                     class="bg-white rounded-lg shadow border border-gray-100 p-4 cursor-pointer">
-                    <h2>{{ wishlist.data().name }}</h2>
-                    <small class="block">Unieke code: {{ wishlist.data().uniqueId }}</small>
+                    <h2>{{ wishlist.name }}</h2>
+                    <small class="block">Unieke code: {{ wishlist.uniqueId }}</small>
                 </router-link>
             </div>
             <router-link
@@ -26,30 +26,22 @@
 
 <script>
 import {defineComponent} from "vue";
-import {getWishlists, isLoggedIn, loggedInUser} from "../common";
+import {mapActions, mapGetters} from "vuex";
 
 export default defineComponent({
     name: 'Home',
     data: function () {
         return {
-            isLoggedIn,
-            loggedInUser,
             wishlists: []
         }
     },
-    created() {
-        this.getWishlists();
-    },
-    watch: {
-        '$route': 'getWishlists'
-    },
+    computed: mapGetters(['getAccount', 'getWishlists']),
     methods: {
-        getWishlists: async function () {
-            const wishlists = await getWishlists(loggedInUser.value.uid);
-            wishlists.forEach(doc => {
-                this.wishlists.push(doc);
-            });
-        }
+        ...mapActions(['fetchWishlists', 'fetchAccount']),
+    },
+    created() {
+        if (!this.getAccount) this.fetchAccount();
+        this.fetchWishlists();
     }
 });
 </script>

@@ -32,22 +32,22 @@
                     </div>
                     <div class="hidden sm:flex items-center space-x-1 px-2">
                         <router-link
-                            v-if="!isLoggedIn"
+                            v-if="!getAccount"
                             :to="{ name: 'Register' }"
                             class="h-full flex items-center px-2 text-white font-semibold hover:text-gray-400 transition duration-300"
                             :class="$route.name === 'Register' ? 'border-b-4 border-red-400 text-red-400 hover:text-red-600' : ''">
                             Register
                         </router-link>
                         <router-link
-                            v-if="!isLoggedIn"
+                            v-if="!getAccount"
                             :to="{ name: 'Login' }"
                             class="h-full flex items-center px-2 text-white font-semibold hover:text-gray-400 transition duration-300"
                             :class="$route.name === 'Login' ? 'border-b-4 border-red-400 text-red-400 hover:text-red-600' : ''">
                             Login
                         </router-link>
                         <button
-                            v-if="isLoggedIn"
-                            @click="logout"
+                            v-if="getAccount"
+                            @click="handleLogout"
                             class="h-full flex items-center px-2 text-white font-semibold hover:text-gray-400 transition duration-300">
                             Logout
                         </button>
@@ -63,27 +63,31 @@
 
 <script lang="ts">
 import {defineComponent, ref} from "vue";
-import {getAuth, onAuthStateChanged, signOut} from "firebase/auth";
+import {mapActions, mapGetters} from "vuex";
 
 export default defineComponent({
     name: "App",
-    data: function () {
-        const isLoggedIn = ref(false);
-        const auth = getAuth();
-
-        onAuthStateChanged(auth, function (user) {
-            isLoggedIn.value = !!user;
-        });
-
-        return {
-            isLoggedIn
+    created() {
+        if (!this.getAccount) {
+            this.fetchAccount();
         }
     },
     methods: {
-        logout: function () {
-            const auth = getAuth();
-            signOut(auth);
-            this.$router.push('/');
+        ...mapActions(['logout', 'fetchAccount']),
+        handleLogout: function () {
+            this.logout();
+        }
+    },
+    computed: mapGetters(['getAccount', 'getError']),
+    watch: {
+        getAccount(newValue, oldValue) {
+            console.log("In watch getAccount in App.vue")
+
+            if (newValue === null) {
+                this.$router.replace('/');
+            } else {
+                this.$router.replace('/');
+            }
         }
     }
 });
