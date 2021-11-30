@@ -26,6 +26,10 @@ let api = {
         return api.provider().account.createSession(email, password);
     },
 
+    createOAuth2Session: (data: { provider: string; success?: string; failure?: string; scopes?: string[] }) => {
+        return api.provider().account.createOAuth2Session(data.provider, data.success, data.failure, data.scopes);
+    },
+
     deleteCurrentSession: () => {
         return api.provider().account.deleteSession('current');
     },

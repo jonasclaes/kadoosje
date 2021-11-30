@@ -15,29 +15,16 @@
                                 <span class="font-semibold text-white text-lg">Kadoosje</span>
                             </a>
                         </div>
-                        <div class="hidden sm:flex items-center space-x-1">
+                        <div class="flex items-center space-x-1">
                             <router-link
                                 :to="{ name: 'Home' }"
                                 class="h-full flex items-center px-2 text-white font-semibold hover:text-gray-400 transition duration-300"
                                 :class="$route.name === 'Home' ? 'border-b-4 border-red-400 text-red-400 hover:text-red-600' : ''">
                                 Home
                             </router-link>
-                            <router-link
-                                to="/"
-                                class="h-full flex items-center px-2 text-white font-semibold hover:text-gray-400 transition duration-300"
-                                :class="$route.name === 'Wishlist' ? 'border-b-4 border-red-400 text-red-400 hover:text-red-600' : 'hidden'">
-                                Wishlist
-                            </router-link>
                         </div>
                     </div>
-                    <div class="hidden sm:flex items-center space-x-1 px-2">
-                        <router-link
-                            v-if="!getAccount"
-                            :to="{ name: 'Register' }"
-                            class="h-full flex items-center px-2 text-white font-semibold hover:text-gray-400 transition duration-300"
-                            :class="$route.name === 'Register' ? 'border-b-4 border-red-400 text-red-400 hover:text-red-600' : ''">
-                            Register
-                        </router-link>
+                    <div class="flex items-center space-x-1 px-2">
                         <router-link
                             v-if="!getAccount"
                             :to="{ name: 'Login' }"
@@ -64,12 +51,13 @@
 <script lang="ts">
 import {defineComponent, ref} from "vue";
 import {mapActions, mapGetters} from "vuex";
+import api from "./api";
 
 export default defineComponent({
     name: "App",
-    created() {
+    async created() {
         if (!this.getAccount) {
-            this.fetchAccount();
+            await this.fetchAccount();
         }
     },
     methods: {
@@ -81,13 +69,13 @@ export default defineComponent({
     computed: mapGetters(['getAccount', 'getError']),
     watch: {
         getAccount(newValue, oldValue) {
-            console.log("In watch getAccount in App.vue")
+            // console.log("In watch getAccount in App.vue")
 
-            if (newValue === null) {
-                this.$router.replace('/');
-            } else {
-                // this.$router.replace('/');
-            }
+            // if (newValue === null) {
+            //     this.$router.replace('/auth/login');
+            // } else {
+            //     // this.$router.replace('/');
+            // }
         }
     }
 });

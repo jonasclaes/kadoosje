@@ -3,9 +3,12 @@
         <div class="col-span-full w-full">
             <h1 class="font-semibold text-xl" v-if="getAccount">Welkom terug, {{ getAccount.name }}!</h1>
         </div>
+        <div class="bg-white rounded-lg shadow-lg p-4 col-span-full w-full" v-if="!getAccount">
+            <h1 class="font-semibold text-xl md:text-3xl">Welcome to Kadoosje!</h1>
+        </div>
         <div class="bg-white rounded-lg shadow-lg p-4 col-span-full w-full" v-if="getAccount">
             <h1 class="font-semibold text-xl">Jouw verlanglijstjes:</h1>
-            <div v-if="getWishlists.length > 0" class="grid grid-cols-2 gap-3 mt-2">
+            <div v-if="getWishlists.length > 0" class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
                 <router-link
                     v-for="wishlist in getWishlists"
                     :key="wishlist['$id']"
@@ -37,6 +40,7 @@ export default defineComponent({
     async created() {
         if (!this.getAccount) await this.fetchAccount();
         await this.fetchWishlists({});
+        console.log(this.getAccount);
     }
 });
 </script>
