@@ -86,7 +86,7 @@ export default defineComponent({
             if (newValue === null) {
                 this.$router.replace('/');
             } else {
-                this.$router.replace('/');
+                // this.$router.replace('/');
             }
         }
     }

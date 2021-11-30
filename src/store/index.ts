@@ -1,6 +1,7 @@
 import {createStore} from 'vuex';
 import account from './modules/account';
 import wishlists from './modules/wishlist';
+import wishlistItems from './modules/wishlistItems';
 
 // Global store
 const state = {
@@ -27,6 +28,7 @@ const store = createStore({
     modules: {
         account,
         wishlists,
+        wishlistItems,
     },
 });
 

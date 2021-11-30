@@ -9,17 +9,17 @@
                 <router-link
                     v-for="wishlist in getWishlists"
                     :key="wishlist['$id']"
-                    :to="{ name: 'Wishlist', params: { uuid: wishlist.uniqueId } }"
+                    :to="{ name: 'Wishlist', params: { documentId: wishlist['$id'] } }"
                     class="bg-white rounded-lg shadow border border-gray-100 p-4 cursor-pointer">
                     <h2>{{ wishlist.name }}</h2>
-                    <small class="block">Unieke code: {{ wishlist.uniqueId }}</small>
+                    <small class="block">Unieke code: {{ wishlist['$id'] }}</small>
                 </router-link>
             </div>
-            <router-link
-                :to="{ name: 'CreateWishlist' }"
-                class="transition-colors duration-300 px-3 py-2 mt-2 text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white rounded inline-flex justify-center items-center text-center">
-                Create new wishlist
-            </router-link>
+            <!--            <router-link-->
+            <!--                :to="{ name: 'CreateWishlist' }"-->
+            <!--                class="transition-colors duration-300 px-3 py-2 mt-2 text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white rounded inline-flex justify-center items-center text-center">-->
+            <!--                Create new wishlist-->
+            <!--            </router-link>-->
         </div>
     </div>
 </template>
@@ -30,18 +30,13 @@ import {mapActions, mapGetters} from "vuex";
 
 export default defineComponent({
     name: 'Home',
-    data: function () {
-        return {
-            wishlists: []
-        }
-    },
     computed: mapGetters(['getAccount', 'getWishlists']),
     methods: {
         ...mapActions(['fetchWishlists', 'fetchAccount']),
     },
-    created() {
-        if (!this.getAccount) this.fetchAccount();
-        this.fetchWishlists();
+    async created() {
+        if (!this.getAccount) await this.fetchAccount();
+        await this.fetchWishlists({});
     }
 });
 </script>

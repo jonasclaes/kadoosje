@@ -5,11 +5,11 @@
         <router-link
             :to="{
                 name: 'WishlistItem',
-                params: { uuid: uuid, itemUuid: item.uuid },
+                params: { documentId: documentId, itemDocumentId: item['$id'] },
             }">
             <div
                 class="bg-white rounded-lg shadow-lg p-4 col-span-1 w-full break-all">
-                <h2 class="text-lg">{{ item.name }}</h2>
+                <h2 class="text-lg truncate">{{ item.name }}</h2>
                 <img
                     :src="imageLocation"
                     alt="Picture"
@@ -25,7 +25,7 @@ import {defineComponent} from 'vue';
 
 export default defineComponent({
     name: 'WishlistListItem',
-    props: ['uuid', 'item', 'isLoggedIn'],
+    props: ['documentId', 'item', 'isLoggedIn'],
     computed: {
         imageLocation: function () {
             // return `/assets/img/${this.item.picture}`;
@@ -34,7 +34,8 @@ export default defineComponent({
         cssClasses: function () {
             const classes = [];
 
-            if (this.item.purchased && !this.isLoggedIn) classes.push('opacity-50');
+            // if (this.item.purchased && !this.isLoggedIn) classes.push('opacity-50');
+            if (this.item.purchased) classes.push('opacity-50');
 
             return classes.join(' ');
         },

@@ -2,15 +2,15 @@ import api from '../../api';
 import { Server } from '../../utils/config';
 
 const state = {
-    wishlists: [],
-    wishlist: null,
+    wishlistItems: [],
+    wishlistItem: null,
 };
 
 const actions = {
     // @ts-ignore
-    fetchWishlists: async ({ commit }, { filters, limit, offset, orderField, orderType, orderCast, search }) => {
+    fetchWishlistItems: async ({ commit }, { filters, limit, offset, orderField, orderType, orderCast, search }) => {
         try {
-            const data = await api.listDocuments(Server.collections.wishlists, {
+            const data = await api.listDocuments(Server.collections.wishlistItems, {
                 filters,
                 limit,
                 offset,
@@ -19,7 +19,7 @@ const actions = {
                 orderCast,
                 search,
             });
-            commit('setWishlists', data.documents);
+            commit('setWishlistItems', data.documents);
         } catch (e: any) {
             console.log('Could not fetch documents', e);
             commit(
@@ -34,10 +34,10 @@ const actions = {
         }
     },
     // @ts-ignore
-    fetchWishlist: async ({ commit }, { documentId }) => {
+    fetchWishlistItem: async ({ commit }, { documentId }) => {
         try {
-            const data = await api.getDocument(Server.collections.wishlists, documentId);
-            commit('setWishlist', data);
+            const data = await api.getDocument(Server.collections.wishlistItems, documentId);
+            commit('setWishlistItem', data);
         } catch (e: any) {
             console.log('Could not fetch document', e);
             commit(
@@ -52,11 +52,10 @@ const actions = {
         }
     },
     // @ts-ignore
-    addWishlist: async ({ commit }, { data, read, write }) => {
+    addWishlistItem: async ({ commit }, { data, read, write }) => {
         try {
-            const response = await api.createDocument(Server.collections.wishlists, data, read, write);
-            console.log(response);
-            commit('addWishlist', response);
+            const response = await api.createDocument(Server.collections.wishlistItems, data, read, write);
+            commit('addWishlistItem', response);
         } catch (e: any) {
             console.log('Could not create document', e);
             commit(
@@ -72,10 +71,10 @@ const actions = {
     },
 
     // @ts-ignore
-    updateWishlist: async ({ commit }, { documentId, data, read, write }) => {
+    updateWishlistItem: async ({ commit }, { documentId, data, read, write }) => {
         try {
-            const response = await api.updateDocument(Server.collections.wishlists, documentId, data, read, write);
-            commit('updateWishlist', response);
+            const response = await api.updateDocument(Server.collections.wishlistItems, documentId, data, read, write);
+            commit('updateWishlistItem', response);
         } catch (e: any) {
             console.log('Could not update document', e);
             commit(
@@ -91,10 +90,10 @@ const actions = {
     },
 
     // @ts-ignore
-    deleteWishlist: async ({ commit }, documentId) => {
+    deleteWishlistItem: async ({ commit }, documentId) => {
         try {
-            await api.deleteDocument(Server.collections.wishlists, documentId);
-            commit('deleteWishlist', documentId);
+            await api.deleteDocument(Server.collections.wishlistItems, documentId);
+            commit('deleteWishlistItem', documentId);
         } catch (e: any) {
             console.log('Could not delete document', e);
             commit(
@@ -112,32 +111,38 @@ const actions = {
 
 const getters = {
     // @ts-ignore
-    getWishlists: (state) => state.wishlists,
+    getWishlistItems: (state) => state.wishlistItems,
 
     // @ts-ignore
-    getWishlist: (state) => state.wishlist,
+    getWishlistItem: (state) => state.wishlistItem,
 };
 
 const mutations = {
     // @ts-ignore
-    setWishlists: (state, wishlists) => (state.wishlists = wishlists),
+    setWishlistItems: (state, wishlistItems) => (state.wishlistItems = wishlistItems),
 
     // @ts-ignore
-    setWishlist: (state, wishlist) => (state.wishlist = wishlist),
+    setWishlistItem: (state, wishlistItem) => (state.wishlistItem = wishlistItem),
 
     // @ts-ignore
-    addWishlist: (state, wishlist) => state.wishlists.unshift(wishlist),
+    addWishlistItem: (state, wishlistItem) => state.wishlistItems.unshift(wishlistItem),
 
     // @ts-ignore
-    deleteWishlist: (state, id) => (state.wishlists = state.wishlists.filter((wishlist) => wishlist['$id'] !== id)),
-
-    // @ts-ignore
-    updateWishlist: (state, updatedWishlist) => {
+    deleteWishlistItem: (state, id) =>
         // @ts-ignore
-        const index = state.wishlists.findIndex((wishlist) => wishlist['$id'] === updatedWishlist['$id']);
+        (state.wishlistItems = state.wishlistItems.filter((wishlistItem) => wishlistItem['$id'] !== id)),
+
+    // @ts-ignore
+    updateWishlistItem: (state, updatedWishlistItem) => {
+        const index = state.wishlistItems.findIndex(
+            // @ts-ignore
+            (wishlistItem) => wishlistItem['$id'] === updatedWishlistItem['$id']
+        );
         if (index !== -1) {
-            state.wishlists.splice(index, 1, updatedWishlist);
+            state.wishlistItems.splice(index, 1, updatedWishlistItem);
         }
+
+        state.wishlistItem = updatedWishlistItem;
     },
 };
 

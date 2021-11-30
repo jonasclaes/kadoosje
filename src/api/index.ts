@@ -4,7 +4,7 @@ import { Server } from '../utils/config';
 let api = {
     sdk: null,
 
-    provider: () => {
+    provider: (): Appwrite => {
         if (api.sdk) return api.sdk;
         let appwrite = new Appwrite();
         // @ts-ignore
@@ -34,8 +34,15 @@ let api = {
         return api.provider().database.createDocument(collectionId, data, read, write);
     },
 
-    listDocuments: (collectionId: string) => {
-        return api.provider().database.listDocuments(collectionId);
+    // @ts-ignore
+    listDocuments: (collectionId: string, { filters, limit, offset, orderField, orderType, orderCast, search }) => {
+        return api
+            .provider()
+            .database.listDocuments(collectionId, filters, limit, offset, orderField, orderType, orderCast, search);
+    },
+
+    getDocument: (collectionId: string, documentId: string) => {
+        return api.provider().database.getDocument(collectionId, documentId);
     },
 
     updateDocument: (collectionId: string, documentId: string, data: any, read: any, write: any) => {
