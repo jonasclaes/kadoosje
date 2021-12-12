@@ -1,8 +1,8 @@
 export const Server = {
-    endpoint: import.meta.env.VITE_APP_ENDPOINT,
-    project: import.meta.env.VITE_APP_PROJECT,
+    endpoint: "http://appwrite.jonasclaes.be/v1",
+    project: "61a531074d38c",
     collections: {
-        wishlists: <string>import.meta.env.VITE_WISHLISTS_COLLECTION_ID,
-        wishlistItems: <string>import.meta.env.VITE_WISHLISTS_ITEMS_COLLECTION_ID,
+        wishlists: <string>"61a552cb93f92",
+        wishlistItems: <string>"61a554bddc57f",
     },
 };
