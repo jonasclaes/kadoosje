@@ -5,9 +5,16 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
         <div class="flex flex-col">
           <label for="url">Productlink:</label>
-          <input type="url" name="url" id="url" />
+          <input
+            type="url"
+            name="url"
+            id="url"
+            class="border-none bg-gray-200 rounded-md"
+          />
           <small>Vul hier een link in van een product.</small>
         </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-2">
         <button
           class="bg-green-500 hover:bg-green-600 p-3 rounded shadow-lg text-white"
           type="submit"
@@ -20,7 +27,13 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
         <div class="flex flex-col">
           <label for="name">Naam:</label>
-          <input type="text" name="name" id="name" v-model="newProduct.name" />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            v-model="newProduct.name"
+            class="border-none bg-gray-200 rounded-md"
+          />
           <small>Vul hier de product naam in.</small>
         </div>
         <div class="flex flex-col">
@@ -29,6 +42,7 @@
             type="text"
             name="description"
             id="description"
+            class="border-none bg-gray-200 rounded-md"
             v-model="newProduct.description"
           />
           <small>Vul hier de product omschrijving in.</small>
@@ -39,6 +53,7 @@
             type="text"
             name="currency"
             id="currency"
+            class="border-none bg-gray-200 rounded-md"
             v-model="newProduct.currency"
           />
           <small>Vul hier de product munteenheid in.</small>
@@ -49,6 +64,7 @@
             type="number"
             name="price"
             id="price"
+            class="border-none bg-gray-200 rounded-md"
             step="0.01"
             v-model="newProduct.price"
           />
@@ -56,7 +72,13 @@
         </div>
         <div class="flex flex-col">
           <label for="url">Link:</label>
-          <input type="url" name="url" id="url" v-model="newProduct.url" />
+          <input
+            type="url"
+            name="url"
+            id="url"
+            v-model="newProduct.url"
+            class="border-none bg-gray-200 rounded-md"
+          />
           <small>Vul hier de product link in.</small>
         </div>
         <div class="flex flex-col">
@@ -65,6 +87,7 @@
             type="url"
             name="picture"
             id="picture"
+            class="border-none bg-gray-200 rounded-md"
             v-model="newProduct.picture"
           />
           <small>Vul hier een link naar de productfoto in.</small>

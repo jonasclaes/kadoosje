@@ -5,7 +5,13 @@
       <div class="grid grid-cols-1 gap-3 mt-2">
         <div class="flex flex-col">
           <label for="name">Naam:</label>
-          <input type="text" name="name" id="name" v-model="wishlist.name" />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            v-model="wishlist.name"
+            class="border-none bg-gray-200 rounded-md"
+          />
           <small>Vul hier de naam van je verlanglijstje in.</small>
         </div>
         <button
