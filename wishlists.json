@@ -1,0 +1,58 @@
+[
+  {
+    "created_at": "2021-12-12T21:14:28.802Z",
+    "updated_at": "2021-12-12T21:14:28.802Z",
+    "name": "Jonas' verlanglijstje",
+    "uniqueId": "P1gLXrh4",
+    "products": [
+      {
+        "created_at": "2021-12-12T21:14:28.802Z",
+        "updated_at": "2021-12-12T21:14:28.802Z",
+        "name": "LEGO Porsche 10295 Porsche 911",
+        "description": "Stijl zonder compromis. Eindeloos rijplezier. De Porsche 911 is een legendarische auto die zijn gelijke niet kent. Nu kun jij je eigen modelversie van deze beroemde wagen bouwen met deze Porsche 911 (10295) van LEGO.",
+        "currency": "EUR",
+        "price": 107.0,
+        "url": "https://www.dreamland.be/e/nl/dl/lego-porsche-10295-porsche-911-111800",
+        "picture": "https://static.dreamland.be/wcsstore/ColruytB2CCAS/JPG/JPG/646x1000/std.lang.all/84/86/asset-2478486.jpg",
+        "purchased": false
+      },
+      {
+        "created_at": "2021-12-12T21:14:28.802Z",
+        "updated_at": "2021-12-12T21:14:28.802Z",
+        "name": "LEGO Creator Expert 10271 Fiat 500",
+        "description": "Bouw een iconisch ontwerp uit de Italiaanse auto-industrie na met deze LEGO Creator Expert Fiat 500 (10271).",
+        "currency": "EUR",
+        "price": 64.95,
+        "url": "https://www.dreamland.be/e/nl/dl/lego-creator-expert-10271-fiat-500-144022",
+        "picture": "https://static.dreamland.be/wcsstore/ColruytB2CCAS/JPG/JPG/646x1000/std.lang.all/86/23/asset-2128623.jpg",
+        "purchased": false
+      }
+    ]
+  },
+  {
+    "created_at": "2021-12-12T21:14:28.802Z",
+    "updated_at": "2021-12-12T21:14:28.802Z",
+    "name": "Ilse's verlanglijstje",
+    "uniqueId": "JQOthBuc",
+    "products": [
+      {
+        "created_at": "2021-12-12T21:14:28.802Z",
+        "updated_at": "2021-12-12T21:14:28.802Z",
+        "name": "LEGO Porsche 10295 Porsche 911",
+        "description": "Stijl zonder compromis. Eindeloos rijplezier. De Porsche 911 is een legendarische auto die zijn gelijke niet kent. Nu kun jij je eigen modelversie van deze beroemde wagen bouwen met deze Porsche 911 (10295) van LEGO.",
+        "currency": "EUR",
+        "price": 107.0,
+        "url": "https://www.dreamland.be/e/nl/dl/lego-porsche-10295-porsche-911-111800",
+        "picture": "https://static.dreamland.be/wcsstore/ColruytB2CCAS/JPG/JPG/646x1000/std.lang.all/84/86/asset-2478486.jpg",
+        "purchased": false
+      }
+    ]
+  },
+  {
+    "created_at": "2021-12-12T21:14:28.802Z",
+    "updated_at": "2021-12-12T21:14:28.802Z",
+    "name": "Sheldon's verlanglijstje",
+    "uniqueId": "Kb61k8o8",
+    "products": []
+  }
+]

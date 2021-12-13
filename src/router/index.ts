@@ -8,13 +8,40 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/wishlists",
+    name: "Wishlists",
     // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
+    // this generates a separate chunk (wishlists.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import(/* webpackChunkName: "wishlists" */ "../views/Wishlists.vue"),
+  },
+  {
+    path: "/wishlists/addWishlist",
+    name: "AddWishlist",
+    // route level code-splitting
+    // this generates a separate chunk (addWishlist.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "addWishlist" */ "../views/AddWishlist.vue"),
+  },
+  {
+    path: "/wishlists/:uniqueId",
+    name: "Wishlist",
+    // route level code-splitting
+    // this generates a separate chunk (wishlist.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "wishlist" */ "../views/Wishlist.vue"),
+  },
+  {
+    path: "/wishlists/:uniqueId/addProduct",
+    name: "AddProduct",
+    // route level code-splitting
+    // this generates a separate chunk (addProduct.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "addProduct" */ "../views/AddProduct.vue"),
   },
 ];
 
