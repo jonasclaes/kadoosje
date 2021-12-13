@@ -20,7 +20,7 @@
       </div>
     </div>
     <div
-      class="bg-gray-100 text-gray-800 min-h-screen h-full w-full absolute top-0 pt-14"
+      class="bg-gray-100 text-gray-800 min-h-screen h-full w-full absolute top-0 pt-14 overflow-y-scroll"
     >
       <div class="container mx-auto">
         <div class="max-w-6xl mx-auto p-4">

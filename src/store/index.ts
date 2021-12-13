@@ -41,6 +41,25 @@ export default createStore({
         return null;
       }
     },
+    product: (state) => (uniqueId: string, productName: string) => {
+      const results = state.wishlists.filter(
+        (wishlist: IWishlist) => wishlist.uniqueId === uniqueId
+      );
+
+      if (results.length > 0) {
+        const products = results[0].products.filter(
+          (product: IWishlistItem) => product.name === productName
+        );
+
+        if (products.length > 0) {
+          return products[0];
+        } else {
+          return null;
+        }
+      } else {
+        return null;
+      }
+    },
   },
   mutations: {
     setWishlists(state, data) {
@@ -48,6 +67,12 @@ export default createStore({
     },
     setWishlist(state, data: { index: number; wishlist: IWishlist }) {
       state.wishlists[data.index] = data.wishlist;
+    },
+    setProduct(
+      state,
+      data: { index: number; productIndex: number; product: IWishlistItem }
+    ) {
+      state.wishlists[data.index].products[data.productIndex] = data.product;
     },
     addWishlist(state, wishlist: IWishlist) {
       state.wishlists.push(wishlist);

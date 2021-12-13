@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1 class="font-semibold text-3xl">{{ wishlist?.name }}</h1>
+    <p>{{ getAmountOfProductsText(wishlist?.products.length) }}</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
       <button
         class="bg-green-500 hover:bg-green-600 p-3 rounded shadow-lg text-white"
@@ -13,9 +14,11 @@
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-2"
     >
       <div
-        class="bg-white rounded-xl shadow-lg"
+        class="bg-white rounded-xl shadow-lg cursor-pointer"
+        :class="{ 'opacity-50': product.purchased }"
         v-for="product in wishlist?.products"
         :key="product.name"
+        @click="openProduct(wishlist?.uniqueId, product.name)"
       >
         <img
           :src="product.picture"
@@ -43,7 +46,7 @@ export default class Wishlist extends Vue {
     this.wishlist = store.getters.wishlist(this.$route.params.uniqueId);
   }
 
-  getAmountOfProductsText(amountOfProducts: number): string {
+  getAmountOfProductsText(amountOfProducts = 0.0): string {
     if (amountOfProducts === 1) return "Er staat 1 product op dit wenslijstje.";
     if (amountOfProducts > 1)
       return `Er staan ${amountOfProducts} producten op dit wenslijstje.`;
@@ -55,7 +58,11 @@ export default class Wishlist extends Vue {
   }
 
   openAddProduct(uniqueId = ""): void {
-    this.$router.push(`/wishlists/${uniqueId}/addProduct`);
+    this.$router.push(`/wishlists/${uniqueId}/products/addProduct`);
+  }
+
+  openProduct(uniqueId = "", productName = ""): void {
+    this.$router.push(`/wishlists/${uniqueId}/products/${productName}`);
   }
 }
 </script>
