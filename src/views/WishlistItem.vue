@@ -70,6 +70,8 @@ export default class Wishlist extends Vue {
         productIndex,
         product: this.product,
       });
+
+      this.$router.push(`/wishlists/${this.$route.params.uniqueId}`);
     }
   }
 }
