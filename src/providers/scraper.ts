@@ -11,9 +11,7 @@ export type ScraperResponse = {
 
 export class Scraper {
   static async scrape(url: string): Promise<ScraperResponse> {
-    const response = await fetch(
-      `http://localhost:8081/http://localhost:9999/.netlify/functions/get-webpage?url=${url}`
-    );
+    const response = await fetch(`/.netlify/functions/get-webpage?url=${url}`);
     const data = await response.json();
     const parser = new DOMParser().parseFromString(data.data, "text/html");
 
