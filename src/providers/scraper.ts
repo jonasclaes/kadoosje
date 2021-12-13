@@ -1,4 +1,5 @@
 import $ from "jquery";
+import config from "./config";
 
 export type ScraperResponse = {
   title?: string;
@@ -11,7 +12,9 @@ export type ScraperResponse = {
 
 export class Scraper {
   static async scrape(url: string): Promise<ScraperResponse> {
-    const response = await fetch(`/.netlify/functions/get-webpage?url=${url}`);
+    const response = await fetch(
+      `${config.FUNCTIONS_ENDPOINT}/.netlify/functions/get-webpage?url=${url}`
+    );
     const data = await response.json();
     const parser = new DOMParser().parseFromString(data.data, "text/html");
 

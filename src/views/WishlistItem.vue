@@ -11,7 +11,7 @@
             class="rounded-t-xl h-64 object-scale-down mx-auto"
           />
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-3">
+        <div class="bg-white rounded-xl shadow-lg p-3 flex flex-col space-y-3">
           <button
             class="bg-green-500 hover:bg-green-600 p-3 rounded shadow-lg text-white w-full"
             @click="togglePurchased"
@@ -21,6 +21,12 @@
                 ? "Terug op lijstje zetten"
                 : "Afvinken van lijstje"
             }}
+          </button>
+          <button
+            class="bg-blue-500 hover:bg-blue-600 p-3 rounded shadow-lg text-white w-full"
+            @click="openProductPage"
+          >
+            Product pagina openen
           </button>
         </div>
       </div>
@@ -73,6 +79,10 @@ export default class Wishlist extends Vue {
 
       this.$router.push(`/wishlists/${this.$route.params.uniqueId}`);
     }
+  }
+
+  openProductPage(): void {
+    window.open(this.product?.url);
   }
 }
 </script>

@@ -47,8 +47,8 @@ export default class App extends Vue {
     },
   ];
 
-  created(): void {
-    store.dispatch("loadWishlists");
+  async created(): Promise<void> {
+    await store.dispatch("loadWishlists");
   }
 }
 </script>

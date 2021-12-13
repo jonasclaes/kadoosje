@@ -1,3 +1,4 @@
+import API from "@/providers/api";
 import { createStore } from "vuex";
 
 export type IWishlistItem = {
@@ -65,26 +66,50 @@ export default createStore({
     setWishlists(state, data) {
       state.wishlists = data;
     },
-    setWishlist(state, data: { index: number; wishlist: IWishlist }) {
+    async setWishlist(state, data: { index: number; wishlist: IWishlist }) {
+      const oldWishlist = state.wishlists[data.index];
+
       state.wishlists[data.index] = data.wishlist;
+
+      await API.updateWishlist(
+        oldWishlist.uniqueId,
+        state.wishlists[data.index]
+      );
     },
-    setProduct(
+    async setProduct(
       state,
       data: { index: number; productIndex: number; product: IWishlistItem }
     ) {
+      const oldWishlist = state.wishlists[data.index];
+
       state.wishlists[data.index].products[data.productIndex] = data.product;
+
+      await API.updateWishlist(
+        oldWishlist.uniqueId,
+        state.wishlists[data.index]
+      );
     },
-    addWishlist(state, wishlist: IWishlist) {
+    async addWishlist(state, wishlist: IWishlist) {
       state.wishlists.push(wishlist);
+
+      await API.createWishlist(wishlist);
     },
-    addProduct(state, data: { index: number; product: IWishlistItem }) {
+    async addProduct(state, data: { index: number; product: IWishlistItem }) {
+      const oldWishlist = state.wishlists[data.index];
+
       state.wishlists[data.index].products.push(data.product);
+
+      await API.updateWishlist(
+        oldWishlist.uniqueId,
+        state.wishlists[data.index]
+      );
     },
   },
   actions: {
-    loadWishlists(context) {
+    async loadWishlists(context) {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-      const data: IWishlist[] = require("../../wishlists.json");
+      // const data: IWishlist[] = require("../../wishlists.json");
+      const data: IWishlist[] = await API.getWishlists();
 
       context.commit("setWishlists", data);
     },

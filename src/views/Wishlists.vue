@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1 class="font-semibold text-3xl">Wishlists</h1>
+    <h1 class="font-semibold text-3xl">Verlanglijstjes</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
       <button
         class="bg-green-500 hover:bg-green-600 p-3 rounded shadow-lg text-white"
         @click="addWishlist"
       >
-        Create wishlist
+        Nieuw verlanglijstje
       </button>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-2">
